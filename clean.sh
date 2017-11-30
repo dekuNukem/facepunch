@@ -3,4 +3,3 @@ rm ./photo_log/*
 rm *.pyc
 rm -rf ./__pycache__/
 rm ./image.jpg
-rm ./me.jpg
