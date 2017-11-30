@@ -4,7 +4,9 @@ import face_recognition
 from picamera import PiCamera
 
 camera = PiCamera()
+# might have to change this based on how the picamera is oriented 
 camera.rotation = 180
+# default is 50
 camera.brightness = 60
 camera.resolution = (320, 240)
 
@@ -43,12 +45,12 @@ while 1:
     if results[0] == True:
         print("It is!")
         face_logging.log_add("Allen")
-        if count % 20 == 0:
+        if count % 20 == 0: # save a photo log every 20*15 = 300 seconds, or 5 minutes
             face_logging.photo_add("Allen")
     else:
         print("Nope")
         face_logging.log_add("Unknown")
-        face_logging.photo_add("Unknown")
+        face_logging.photo_add("Unknown") # save a photo log of every unknown face
     
     
 

@@ -53,10 +53,10 @@ def make_hhmm(sec):
 
 oled_reset()
 
-serial = i2c(port=1, address=0x3d)
+serial = i2c(port=1, address=0x3d) # sometimes the address is 0x3c for some reason
 device = sh1106(serial)
 font = ImageFont.truetype('cc.ttf', 28)
-oox = 0
+oox = 0 # OLED burn-in prevention variables
 ooy = 0
 shift_amount = 2
 
@@ -68,15 +68,18 @@ while 1:
         except Exception as e:
             print(e)
             continue
+        # put a border around the screen if a face recognition was successful in the last 2 minutes
         if last_face < 60 * 2:
             draw.rectangle(device.bounding_box, outline="white", fill="black")
+        # otherwise don't draw the border
         elif last_face < 60 * 15:
             draw.rectangle(device.bounding_box, outline="black", fill="black")
+        # if no face for more than 15 minutes, turn off the OLED
         else:
             device.clear()
             continue
-        oox = random.randint(-shift_amount, shift_amount)
-        ooy = random.randint(-shift_amount, shift_amount)
+        oox = random.randint(-shift_amount, shift_amount) # randomly shift the displayed item around 
+        ooy = random.randint(-shift_amount, shift_amount) # slightly to prevent OLED burn-in
         print(str(oox) + ", " + str(ooy))
         draw.text((7 + oox, 3 + ooy), "Today", font=font, fill="white")
         draw.text((7 + oox, 32 + ooy), "Week", font=font, fill="white")
