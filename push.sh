@@ -1,4 +1,4 @@
-sh ./clean.sh
+sh ./software/clean.sh
 
 git add --all
 git commit -m "$@"
