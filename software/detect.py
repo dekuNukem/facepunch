@@ -45,12 +45,12 @@ while 1:
     if results[0] == True:
         print("It is!")
         face_logging.log_add("Allen")
-        if count % 20 == 0: # save a photo log every 20*15 = 300 seconds, or 5 minutes
+        if count % 20 == 0: # save a photo every 20*15 = 300 seconds, or 5 minutes
             face_logging.photo_add("Allen")
     else:
         print("Nope")
         face_logging.log_add("Unknown")
-        face_logging.photo_add("Unknown") # save a photo log of every unknown face
+        face_logging.photo_add("Unknown") # save a photo of every unknown face
     
     
 

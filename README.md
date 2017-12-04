@@ -18,7 +18,7 @@ The concept is rather simple: the picamera takes a photo every 15 seconds, the t
 
 [Camera install guide](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera)
 
-I put the two together on a perf board that plug into the header.
+I put the two together on a perf board that plug into the header, of course you can put them somewhere else or design your own PCB.
 
 ### Install required libraries
 
