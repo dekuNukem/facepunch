@@ -58,7 +58,7 @@ Run `python3 detect.py` to start face detection and logging.
 
 Run `python3 display_oled.py` to display time statistics on the OLED.
 
-Or if you don't have an OLED, run `python3 display_text.py` to print the statistics to the terminal.
+Or if not using an OLED, run `python3 display_text.py` to print the statistics to the terminal.
 
 You might have to play with `camera.rotation` and `camera.brightness` at the beginning of `detect.py` depending on how your camera is oriented and your lighting condition. You can open up `image.jpg` to see the latest photo taken.
 
