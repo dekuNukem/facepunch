@@ -8,9 +8,9 @@ The concept is rather simple: the picamera takes a photo every 15 seconds, if my
 
 ## What you need
 
-* [Raspberry Pi Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/). It might work on [RPi Zero](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) too but haven't tested it myself.
+* [Raspberry Pi Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/). It might work on [Zero](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) too but I haven't tested it myself.
 * [Raspberry Pi Camera Module](https://www.raspberrypi.org/products/camera-module-v2/)
-* **OPTIONAL** [1.3 inch OLED display](https://www.adafruit.com/product/938), search "1.3 oled" for much cheaper ones on ebay and alibaba.
+* **OPTIONAL** [128x64 1.3 inch OLED display](https://www.adafruit.com/product/938), search "1.3 oled" on ebay and alibaba for much cheaper ones. 0.96 inch OLED also works.
 
 OLED is optional, skip related steps if you're not using one.
 
