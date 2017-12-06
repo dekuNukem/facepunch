@@ -4,7 +4,9 @@ facepunch tracks how many hours you spend in front of your desk.
 
 ![Alt text](resources/front.jpg)
 
-The concept is rather simple: the picamera takes a photo every 15 seconds, if my face is found, current time is recorded. This is then added up to calculate my exact working hours every week. The result is displayed on an OLED screen.
+The concept is rather simple: the picamera takes a photo every 15 seconds, if my face is found, current time is recorded.
+
+The logged time then added up to calculate my exact working hours every week. The result is displayed on an OLED screen.
 
 ## What you need
 
