@@ -51,14 +51,17 @@ def make_hhmm(sec):
     hours, minutes = sec_to_hr_min(sec)
     return str(hours) + ":" + str(minutes).zfill(2)
 
-oled_reset()
-
-serial = i2c(port=1, address=0x3d) # sometimes the address is 0x3c for some reason
-device = sh1106(serial)
-font = ImageFont.truetype('cc.ttf', 28)
-oox = 0 # OLED burn-in prevention variables
+oox = 0
 ooy = 0
 shift_amount = 2
+
+oled_reset()
+# try 0x3c if 0x3d doesn't work
+serial = i2c(port=1, address=0x3d)
+# 1.3 inch OLED I used here has sh1106 controller
+# 0.96 inch OLEDs usually use ssd1306 controller instead
+device = sh1106(serial)
+font = ImageFont.truetype('cc.ttf', 28)
 
 while 1:
     time.sleep(10)
@@ -78,7 +81,7 @@ while 1:
         else:
             device.clear()
             continue
-        oox = random.randint(-shift_amount, shift_amount) # randomly shift the displayed item around 
+        oox = random.randint(-shift_amount, shift_amount) # randomly shift the display around 
         ooy = random.randint(-shift_amount, shift_amount) # slightly to prevent OLED burn-in
         print(str(oox) + ", " + str(ooy))
         draw.text((7 + oox, 3 + ooy), "Today", font=font, fill="white")
