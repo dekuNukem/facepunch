@@ -51,9 +51,9 @@ def make_hhmm(sec):
     hours, minutes = sec_to_hr_min(sec)
     return str(hours) + ":" + str(minutes).zfill(2)
 
-oox = 0
-ooy = 0
-shift_amount = 2
+# randomly shift the pixels around to prevent OLED burn in
+def bp():
+    return random.randint(-2, 2)
 
 oled_reset()
 # try 0x3c if 0x3d doesn't work
@@ -81,10 +81,14 @@ while 1:
         else:
             device.clear()
             continue
-        oox = random.randint(-shift_amount, shift_amount) # randomly shift the display around 
-        ooy = random.randint(-shift_amount, shift_amount) # slightly to prevent OLED burn-in
-        print(str(oox) + ", " + str(ooy))
-        draw.text((7 + oox, 3 + ooy), "Today", font=font, fill="white")
-        draw.text((7 + oox, 32 + ooy), "Week", font=font, fill="white")
-        draw.text((80 + oox, 3 + ooy), make_hhmm(today_sum), font=font, fill="white")
-        draw.text((80 + oox, 32 + ooy), make_hhmm(week_sum), font=font, fill="white")
+
+        draw.text((7 + bp(), 3 + bp()), "Today", font=font, fill="white")
+        draw.text((7 + bp(), 32 + bp()), "Week", font=font, fill="white")
+        draw.text((78 + bp(), 3 + bp()), make_hhmm(today_sum), font=font, fill="white")
+
+        week_str = make_hhmm(week_sum)
+        week_pos = (78 + bp(), 32 + bp())
+        if len(week_str) >= 5:
+            week_pos = (70 + bp(), 32 + bp())
+
+        draw.text(week_pos, week_str, font=font, fill="white")

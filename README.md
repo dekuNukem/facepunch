@@ -10,7 +10,7 @@ The logged time then added up to calculate my exact working hours every week. Th
 
 ## What you need
 
-* [Raspberry Pi Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/). It might work on [Zero](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) too but I haven't tested it myself.
+* [Raspberry Pi Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/). It might work on [Zero](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) too but I don't have one to test with.
 * [Raspberry Pi Camera Module](https://www.raspberrypi.org/products/camera-module-v2/)
 * **OPTIONAL** [128x64 1.3 inch OLED display](https://www.adafruit.com/product/938), search "1.3 oled" on ebay and alibaba for much cheaper ones. 0.96 inch OLED also works.
 
@@ -38,21 +38,9 @@ I placed the camera and OLED together on a perf board that plug into the header,
 
 [face_recognition library](https://gist.github.com/ageitgey/1ac8dbe8572f3f533df6269dab35df65)
 
-There is a typo in the above instruction, at the step `Download and install dlib v19.6:`
-
-change 
-
-`sudo python3 setup.py install --compiler-flags "-mpfu=neon"` 
-
-to
-
-`sudo python3 setup.py install --compiler-flags "-mfpu=neon"`
-
-Note how the `-mfpu` flag was misspelled.
-
 ### Provide your photo
 
-The program needs a picture of your face in order to learn what you look like. Get a picture of your well-lit face in a clean background and name it `me.jpg` and place it in the software folder. The resolution should be around 400x400 otherwise the processing time is going to be long. An example is already provided so just replace it with your own.
+The program needs a picture of your face in order to learn what you look like. Get a picture of your well-lit face with a clean background, name it `me.jpg` and place it in the software folder. The resolution should be around 400x400 otherwise the processing time is going to be long. An example is already provided so just replace it with your own.
 
 ### Run the program
 
