@@ -1,12 +1,12 @@
 # facepunch: A facial recognition punch clock
 
-facepunch tracks how many hours you spend in front of your desk.
+facepunch tracks how many hours you spend sitting in front of your desk.
 
 ![Alt text](resources/front.jpg)
 
 The concept is rather simple: the picamera takes a photo every 15 seconds, if my face is found, current time is recorded.
 
-The logged time then added up to calculate my exact working hours every week. The result is displayed on an OLED screen.
+The logged time is then added up to calculate my exact working hours every week. The result is displayed on an OLED screen.
 
 ## What you need
 
